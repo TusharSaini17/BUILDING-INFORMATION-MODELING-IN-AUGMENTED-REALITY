@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!-- You may not need the source map file in production -->
+    <script src="https://cdn.jsdelivr.net/npm/artoolkit"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="dashboard">
+
+        <div class="background-box" id="backgroundBox">
+            <div class="title">
+                <h1>Building Information <br> Modeling In Augmented <br> Reality</h1>
+            </div>
+            <div class="camera-text" id="cameraText">
+                <p>Click below to get camera access:</p>
+                <button onclick="startCamera()">Get Camera Access</button>
+            </div>
+
+            <div id="cameraFeed"></div>
+
+
+            <video autoplay loop muted class="video-background">
+                <source src="Video\BIM video.mp4" type="video/mp4">
+            </video>
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+            <div class="circle circle4"></div>
+    
+            <!-- Add the SVG with text -->
+            <div class="bottomfeatures">
+                <img src="Images\Scroll svg.svg" alt="SVG 1">
+                <p>Scroll to discover</p>
+            </div>
+
+
+        <!-- AR.js scene embedded within A-Frame -->
+        <a-scene embedded arjs>
+            <!-- Marker definition -->
+            <a-marker preset="custom" type="pattern" url="Marker files/pattern-marker.patt">
+                <!-- 3D model to display on marker detection -->
+                <a-entity gltf-model="building1.gltf" scale="0.1 0.1 0.1"></a-entity>
+            </a-marker>
+            <!-- Camera entity (required by AR.js) -->
+            <a-entity camera></a-entity>
+        </a-scene>
+        
+            
+        
+                
+        <div class="button-container">
+            <!-- Zoom In Button -->
+            <button class="mode-button zoom-button" onclick="zoomIn()">Zoom In</button>
+            <!-- Zoom Out Button -->
+            <button class="mode-button zoom-button" onclick="zoomOut()">Zoom Out</button>
+            <!-- 2D Button -->
+            <!--<button onclick="switchMode('2D')">2D</button>
+            3D Button 
+            <button onclick="switchMode('3D')">3D</button>-->
+            <!-- Eye Button with Logo -->
+            <button class="mode-button eye-button" onclick="eyeButtonClick()">
+                <img src="Images\eye.svg" alt="Eye Logo">
+            </button>
+                <!-- Delete Button -->
+            <button class="delete-button" onclick="deleteCameraFeed()">Delete</button>
+        </div> 
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#">© Code by Tushar</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign up</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

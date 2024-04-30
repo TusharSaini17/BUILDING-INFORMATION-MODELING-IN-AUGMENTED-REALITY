@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1E1E1E;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;    
+}
+
+#dashboard {
+    width: 100%;
+    height: 95%;
+    margin: 3vh;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.background-box {
+    display: flex;
+    width: 100%;
+    height: 95%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dashboard's colourful animated circles code */
+.circle {
+    position: absolute;
+    width: 560px;
+    height: 580px;
+    border-radius: 50%;
+    filter: blur(45px);
+}
+
+.circle1 {
+    background-color: #9A65EC;
+    top: 5px;
+    left: 35px;
+}
+
+.circle2 {
+    background-color: #4CE9D8;
+    top: -204px;
+    left: 1155px;
+}
+
+.circle3 {
+    background-color: #FFA851;
+    top: 330px;
+    left: 775px;
+}
+
+.circle4 {
+    background-color: #4CE9D8;
+    top: 525px;
+    left: 0px;
+}
+nav{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: transparent;
+    width: 100%;
+    display: inline-flex;
+    padding: 42px 76px 20px 76px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 846px;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+    gap: 864px;
+    text-decoration: none;
+}
+nav ul li:first-child{
+    width: 975px;
+    height: 53px;
+    flex-shrink: 0;
+}
+nav ul li a{
+    color: #1E1E1E;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+.bottomfeatures {
+    position: absolute;
+    bottom: 3px; /* Adjust the distance from the bottom as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+}
+.bottomfeatures img {
+    width: 25px; /* Adjust the width of the SVG image */
+    height: 25px; /* Adjust the height of the SVG image */
+    margin-bottom: 10px; /* Adjust the spacing between the image and text */
+}
+.bottomfeatures p {
+    color: #1E1E1E;
+    font-size: 10px; /* Adjust the font size of the text */
+    margin: 0;
+    font-weight: 600;
+}
+.camera-text {
+    position: absolute;
+    bottom: 3px; /* Adjust the distance from the bottom as needed */
+    right: 50px; /* Adjust the distance from the right as needed */
+    text-align: right; /* Align text to the right */
+    z-index: 5;
+}
+
+.camera-text p {
+    color: #1E1E1E;
+    font-size: 14px; /* Adjust the font size of the text */
+    margin: 0;
+    font-weight: 600;
+}
+.camera-text a {
+    color: #1E1E1E; /* Inherit the color from the parent */
+    text-decoration: none; /* Remove underline */
+}
+.video-background {
+    width: 800px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 25px; /* Adjust border-radius for rounded corners */
+    position: absolute;
+    top: 50%;
+    right: 0; /* Align to the right side */
+    transform: translate(0, -50%); /* Center vertically */
+    z-index: 4;
+    margin-right: 30px;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 0; /* Align to the right side */
+    transform: translate(0, -50%); /* Center vertically */
+    text-align: left; /* Align text to the right */
+    color: white;
+    font-size: 23px; /* Adjust the font size of the text */
+    margin: 40px;
+    font-weight: 600;
+    z-index: 5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow values as needed */
+}
+/* Add styles for the camera feed video element */
+
+
+/* Styles for camera feed container */
+#cameraFeed {
+    position: absolute;
+    top: 50%;
+    left: calc(28% - 400px); /* Adjust the left offset (subtract half of the width) */
+    transform: translateY(-50%);
+    width: 900px; /* Fixed width */
+    height: 600px; /* Allow height to adjust based on video aspect ratio */
+    overflow: hidden;
+    z-index: 4;
+    margin: 10px;
+}
+
+/* Styles for the video element inside camera feed */
+#cameraFeed video {
+    display: block;
+    width: 900px; /* Ensure video fills its container */
+    height: 600px; /* Allow video to maintain aspect ratio */
+    object-fit: cover; /* Maintain aspect ratio while filling container */
+    border-radius: 20px; /* Optional: Add rounded corners to video */
+}
+
+/*AR CSS*/
+#arContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+}
+
+
+
+
+
+/* Adjust the styles for the button container */
+.button-container {
+    display: none;
+    position: absolute;
+    bottom: 0 !important; /* Use !important to override any conflicting styles */
+    left: 25px;
+    margin: 0 !important; /* Set margin to 0 */
+    transform: translate(25px, -25px);
+    z-index: 5;
+}
+
+/* Add these styles for the buttons */
+.mode-button {
+    background-color: white;
+    color: red;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 8px;
+}
+/* Add styles for the eye button */
+.eye-button {
+    background-color: white; /* Set background to transparent */
+    border: none; /* Remove button border */
+    padding: 0; /* Remove padding */
+    margin-left: 18px;
+    z-index: 6;
+    padding: 6px;
+}
+
+.eye-button img {
+    width: 25px; /* Adjust the width of the eye logo */
+}
+
+/* Add styles for the zoom buttons */
+.zoom-button {
+    background-color: white;
+    color: red;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 8px;
+}
+/* Add styles for the delete button */
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(1050px, 0); /* Center vertically */
+    z-index: 6;
+}
+
+
+
